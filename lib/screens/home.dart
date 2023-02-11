@@ -29,6 +29,28 @@ class _HomeState extends State<Home> {
       //backgroundColor: tdBGColor,
       backgroundColor: Color(0xffbcbaba),
       appBar: _buildAppBar(),
+      drawer: Drawer(
+          child: ListView(padding: const EdgeInsets.all(0), children: <Widget>[
+        UserAccountsDrawerHeader(
+          accountName: Text('Jayri Bagchi'),
+          accountEmail: Text('test@gmail.com'),
+          currentAccountPicture: CircleAvatar(
+              backgroundImage: NetworkImage(
+                  "https://images.pexels.com/photos/2820884/pexels-photo-2820884.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")),
+        ),
+        ListTile(
+          leading: Icon(Icons.person),
+          title: Text('Jayri Bagchi'),
+          subtitle: Text('Flutter Developer'),
+          trailing: Icon(Icons.edit),
+        ),
+        ListTile(
+          leading: Icon(Icons.person),
+          title: Text('firstname lastname'),
+          subtitle: Text('Educator'),
+          trailing: Icon(Icons.edit),
+        )
+      ])),
       body: Stack(
         children: [
           Container(
@@ -192,16 +214,21 @@ class _HomeState extends State<Home> {
       child: TextField(
         onChanged: (value) => _runFilter(value),
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.all(0),
+          contentPadding: EdgeInsets.fromLTRB(5, 10, 0, 0),
           prefixIcon: Icon(
             Icons.search,
             color: tdBlack,
             size: 20,
           ),
-          prefixIconConstraints: BoxConstraints(
-            maxHeight: 20,
-            minWidth: 25,
+          suffixIcon: Icon(
+            Icons.task_alt_outlined,
+            color: tdBlack,
+            size: 20,
           ),
+          //prefixIconConstraints: BoxConstraints(
+          //maxHeight: 20,
+          //minWidth: 25,
+          //),
           border: InputBorder.none,
           hintText: 'Search',
           hintStyle: TextStyle(color: tdGrey),
@@ -212,12 +239,12 @@ class _HomeState extends State<Home> {
 
   AppBar _buildAppBar() {
     return AppBar(
-      backgroundColor: tdBGColor,
+      backgroundColor: Colors.black,
       elevation: 0,
       title: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         Icon(
-          Icons.menu,
-          color: tdBlack,
+          Icons.work_history_outlined,
+          color: Colors.white,
           size: 30,
         ),
         Container(
